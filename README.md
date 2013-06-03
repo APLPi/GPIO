@@ -11,7 +11,7 @@ To use the Morse code example, you will require:
 
 Instructions:
 
-1) Extract the all files into the same folder.
+1) Extract all the files into the same folder
 2) Start APL and load the Morse file using for example ]load /home/pi/Morse
 3) Initialise the morse code table by calling e.g. Morse.Init '/home/pi/MorseCode.txt'
 4) Display morse code by calling e.g. Morse.Display 'SOS'
