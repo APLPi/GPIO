@@ -25,10 +25,9 @@
       :EndIf
      
       folder←'/sys/class/gpio/gpio',⍕gpio_pin
-      ⎕SH'gpio export ',⍕gpio_pin ⍝ Creates "direction" and "value"
+      ⎕SH'gpio export ',⍕gpio_pin, ' out' ⍝ Exports pin
       direction←(folder,'/direction')⎕NTIE 0 ⍝ Open the
       value←(folder,'/value')⎕NTIE 0         ⍝   GPIO files
-      direction is'out'                      ⍝ We are doing output
      
       :For didah :In output
           duration←(1 3 3 7)['.-, '⍳didah]
@@ -39,7 +38,7 @@
       :EndFor
      
       ⎕NUNTIE direction value
-      ⎕SH'gpio-admin unexport ',⍕gpio_pin
+      ⎕SH'gpio unexport ',⍕gpio_pin
     ∇
 
 :EndNamespace
