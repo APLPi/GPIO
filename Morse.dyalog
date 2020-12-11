@@ -24,8 +24,8 @@
       :Else ⋄ output←∊Codes[index],¨','      ⍝ one long string, w/"," between symbols
       :EndIf
      
-      folder←'/sys/devices/virtual/gpio/gpio',⍕gpio_pin
-      ⎕SH'gpio-admin export ',⍕gpio_pin ⍝ Creates "direction" and "value"
+      folder←'/sys/class/gpio/gpio',⍕gpio_pin
+      ⎕SH'gpio export ',⍕gpio_pin ⍝ Creates "direction" and "value"
       direction←(folder,'/direction')⎕NTIE 0 ⍝ Open the
       value←(folder,'/value')⎕NTIE 0         ⍝   GPIO files
       direction is'out'                      ⍝ We are doing output
