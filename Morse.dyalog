@@ -1,5 +1,5 @@
 ﻿:Namespace Morse
-   ⍝ Requires https://github.com/quick2wire/quick2wire-gpio-admin
+   ⍝ Requires GPIO Utility
    ⍝∇:require =/Files
 
     rate←200÷1000 ⍝ length of "dit" = 200ms ("dah" will be 3x this)
