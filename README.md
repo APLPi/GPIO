@@ -7,7 +7,7 @@ To use the Morse code example, you will require:
 
 1) A Dyalog APL Interpreter (see http://packages.dyalog.com)
 2) An LED which can be controlled using GPIO (the code assumes you have an LED on pin 18)
-3) The `gpio` command on the RaspberryPi
+3) The GPIO Utility on the Raspberry Pi (This usually comes preinstalled)
 
 Instructions:
 
