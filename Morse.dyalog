@@ -1,5 +1,5 @@
 ﻿:Namespace Morse
-   ⍝ Requires https://github.com/quick2wire/quick2wire-gpio-admin
+   ⍝ Requires GPIO Utility
    ⍝∇:require =/Files
 
     rate←200÷1000 ⍝ length of "dit" = 200ms ("dah" will be 3x this)
@@ -24,11 +24,10 @@
       :Else ⋄ output←∊Codes[index],¨','      ⍝ one long string, w/"," between symbols
       :EndIf
      
-      folder←'/sys/devices/virtual/gpio/gpio',⍕gpio_pin
-      ⎕SH'gpio-admin export ',⍕gpio_pin ⍝ Creates "direction" and "value"
+      folder←'/sys/class/gpio/gpio',⍕gpio_pin
+      ⎕SH'gpio export ',⍕gpio_pin, ' out' ⍝ Exports pin
       direction←(folder,'/direction')⎕NTIE 0 ⍝ Open the
       value←(folder,'/value')⎕NTIE 0         ⍝   GPIO files
-      direction is'out'                      ⍝ We are doing output
      
       :For didah :In output
           duration←(1 3 3 7)['.-, '⍳didah]
@@ -39,7 +38,7 @@
       :EndFor
      
       ⎕NUNTIE direction value
-      ⎕SH'gpio-admin unexport ',⍕gpio_pin
+      ⎕SH'gpio unexport ',⍕gpio_pin
     ∇
 
 :EndNamespace
